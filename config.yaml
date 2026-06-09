@@ -1,0 +1,16 @@
+gateways:
+  snowflake:
+    connection:
+      type: snowflake
+      account: ufintqy-oe87974
+      user: Lakshmivedha35
+      password: Lakshmivedha35@
+      warehouse: COMPUTE_WH
+      database: PORTFOLIO_DB2
+      role: ACCOUNTADMIN
+    
+default_gateway: snowflake
+
+model_defaults:
+  dialect: snowflake
+         

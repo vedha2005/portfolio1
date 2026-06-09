@@ -1,0 +1,21 @@
+2026-06-09 14:11:08,522 - MainThread - sqlmesh.core.console - WARNING - The snowflake engine is not recommended for storing SQLMesh state in production deployments. Please see https://sqlmesh.readthedocs.io/en/stable/guides/configuration/#state-connection for a list of recommended engines and more information. (console.py:2335)
+2026-06-09 14:11:08,593 - MainThread - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 4.4.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0 (connection.py:620)
+2026-06-09 14:11:08,595 - MainThread - snowflake.connector.connection - INFO - Connecting to GLOBAL Snowflake domain (connection.py:1716)
+2026-06-09 14:11:12,710 - MainThread - sqlmesh.core.state_sync.common - INFO - Cleaned up 0 expired snapshots (janitor.py:181)
+2026-06-09 14:11:12,856 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Compacting 0 intervals for 0 snapshots (interval.py:130)
+2026-06-09 14:11:15,197 - MainThread - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 4.4.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0 (connection.py:620)
+2026-06-09 14:11:15,197 - MainThread - snowflake.connector.connection - INFO - Connecting to GLOBAL Snowflake domain (connection.py:1716)
+2026-06-09 14:11:15,723 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: 
+        SELECT COUNT(*) AS cnt
+        FROM PORTFOLIO_DB2.PUBLIC.CLIENTDETAILS1 s
+        LEFT JOIN PORTFOLIO_DB2.PUBLIC.STG_CLIENTDETAILS t
+        ON s.CLIENTID = t.CLIENT_ID
+        WHERE t.CLIENT_ID IS NULL
+     (base.py:2624)
+2026-06-09 14:11:16,290 - ThreadPoolExecutor-17_0 - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema PORTFOLIO_DB2.sqlmesh__PUBLIC (evaluator.py:1616)
+2026-06-09 14:11:16,305 - ThreadPoolExecutor-17_0 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 4.4.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0 (connection.py:620)
+2026-06-09 14:11:16,307 - ThreadPoolExecutor-17_0 - snowflake.connector.connection - INFO - Connecting to GLOBAL Snowflake domain (connection.py:1716)
+2026-06-09 14:11:16,740 - ThreadPoolExecutor-17_0 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT CURRENT_DATABASE() (base.py:2624)
+2026-06-09 14:11:17,015 - ThreadPoolExecutor-17_0 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT CURRENT_DATABASE() (base.py:2624)
+2026-06-09 14:11:17,261 - ThreadPoolExecutor-17_0 - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT DISTINCT "TABLE_CATALOG" AS "catalog", "TABLE_NAME" AS "name", "TABLE_SCHEMA" AS "schema_name", CASE WHEN "TABLE_TYPE" = 'BASE TABLE' AND "IS_DYNAMIC" = 'YES' THEN 'MANAGED_TABLE' WHEN "TABLE_TYPE" = 'BASE TABLE' THEN 'TABLE' WHEN "TABLE_TYPE" = 'TEMPORARY TABLE' THEN 'TABLE' WHEN "TABLE_TYPE" = 'LOCAL TEMPORARY' THEN 'TABLE' WHEN "TABLE_TYPE" = 'EXTERNAL TABLE' THEN 'TABLE' WHEN "TABLE_TYPE" = 'EVENT TABLE' THEN 'TABLE' WHEN "TABLE_TYPE" = 'VIEW' THEN 'VIEW' WHEN "TABLE_TYPE" = 'MATERIALIZED VIEW' THEN 'MATERIALIZED_VIEW' ELSE "TABLE_TYPE" END AS "type", "CLUSTERING_KEY" AS "clustering_key" FROM "PORTFOLIO_DB2"."INFORMATION_SCHEMA"."TABLES" WHERE ("TABLE_SCHEMA" = 'sqlmesh__PUBLIC' AND "TABLE_NAME" IN ('PUBLIC__STG_CLIENTDETAILS__600106282')) AND NOT "TABLE_NAME" LIKE 'SNOWPARK_TEMP_TABLE%' (base.py:2624)
+2026-06-09 14:11:18,789 - MainThread - root - INFO - Shutting down the event dispatcher (dispatcher.py:159)
