@@ -23,7 +23,7 @@ jobs:
         python-version: '3.10'
 
     - name: Install dependencies
-      run: pip install sqlmesh==0.234.1 pandas pyarrow
+      run: pip install "sqlmesh[snowflake]==0.234.1" pandas pyarrow
 
     - name: Test SQLMesh installed
       run: sqlmesh --help
@@ -42,7 +42,7 @@ jobs:
         python-version: '3.10'
 
     - name: Install dependencies
-      run: pip install sqlmesh==0.234.1 pandas pyarrow
+      run: pip install "sqlmesh[snowflake]==0.234.1" pandas pyarrow
 
     - name: Run SQLMesh pipeline
       run: python signals/dd.py
