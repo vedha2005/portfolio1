@@ -44,5 +44,6 @@ jobs:
     - name: Install dependencies
       run: pip install "sqlmesh[snowflake]==0.234.1" pandas pyarrow
 
-    - name: Run SQLMesh pipeline
+    - name: Run signal and load new client data into Snowflake
+      working-directory: ${{ github.workspace }}
       run: python signals/dd.py
