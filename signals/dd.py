@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
         print("⏰ Next run in 5 minutes... (Ctrl+C to stop)", flush=True)
         try:
-            time.sleep(300)
+            time.sleep(240)
         except KeyboardInterrupt:
             print("🛑 Stopped by user.", flush=True)
             break
