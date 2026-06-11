@@ -1,0 +1,8 @@
+2026-06-09 16:28:20,254 - MainThread - sqlmesh.core.console - WARNING - The snowflake engine is not recommended for storing SQLMesh state in production deployments. Please see https://sqlmesh.readthedocs.io/en/stable/guides/configuration/#state-connection for a list of recommended engines and more information. (console.py:2335)
+2026-06-09 16:28:20,324 - MainThread - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 4.4.0, Python Version: 3.12.0, Platform: Windows-11-10.0.26100-SP0 (connection.py:620)
+2026-06-09 16:28:20,326 - MainThread - snowflake.connector.connection - INFO - Connecting to GLOBAL Snowflake domain (connection.py:1716)
+2026-06-09 16:28:23,882 - MainThread - sqlmesh.core.state_sync.common - INFO - Cleaned up 0 expired snapshots (janitor.py:181)
+2026-06-09 16:28:24,142 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Compacting 3 intervals for 2 snapshots (interval.py:130)
+2026-06-09 16:28:24,142 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"PORTFOLIO_DB2"."PUBLIC"."STG_CLIENTDETAILS": 3772491616> (interval.py:215)
+2026-06-09 16:28:24,144 - MainThread - sqlmesh.core.state_sync.db.interval - INFO - Pushing intervals for snapshot SnapshotId<"PORTFOLIO_DB2"."PUBLIC"."STG_CLIENTDETAILS": 2128544918> (interval.py:215)
+2026-06-09 16:28:30,359 - MainThread - root - INFO - Shutting down the event dispatcher (dispatcher.py:159)
