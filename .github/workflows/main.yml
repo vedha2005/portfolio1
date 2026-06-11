@@ -1,0 +1,49 @@
+name: SQLMesh Pipeline
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── JOB 1: TESTING ──────────────────────────
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install "sqlmesh[snowflake]==0.234.1" pandas pyarrow
+
+    - name: Test SQLMesh installed
+      run: sqlmesh --help
+
+  # ── JOB 2: DEPLOY ───────────────────────────
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install "sqlmesh[snowflake]==0.234.1" pandas pyarrow
+
+    - name: Run signal and load new client data into Snowflake
+      working-directory: ${{ github.workspace }}
+      run: python signals/dd.py
